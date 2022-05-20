@@ -4,13 +4,35 @@ using namespace std;
 struct node{
     node *prev;
     int data;
-    node *nest;
+    node *next;
 };
 
 int count = 0, pos, val;
-node *head = NULL, *temp, *ptr;
+node *head = NULL, *last = head, *temp, *ptr;
 
-void insrtBig(){}
+void insrtBig(){
+
+    ptr = new node;
+
+    cout<<"Enter the value to insert: ";
+    cin>>val;
+
+    if(head==NULL){
+        ptr->data = val;
+        ptr->next = NULL;
+        ptr->prev = NULL;
+        head = ptr;
+        last= head;
+        last->prev = head;
+    }else{
+        ptr->data = val;
+        ptr->next = head;
+        ptr->prev = last;
+        head = ptr;
+        last->next = head;
+    }
+    count++;
+}
 
 void insrtEnd(){}
 
